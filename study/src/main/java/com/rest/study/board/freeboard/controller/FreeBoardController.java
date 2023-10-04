@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/freeboards")
 @RestController
 @Slf4j

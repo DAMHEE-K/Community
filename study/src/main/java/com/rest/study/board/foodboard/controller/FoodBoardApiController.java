@@ -21,7 +21,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-@CrossOrigin(origins ="http://localhost")
+@CrossOrigin(origins ="*")
 @Slf4j
 @RestController
 @RequestMapping("/api/foodboards")

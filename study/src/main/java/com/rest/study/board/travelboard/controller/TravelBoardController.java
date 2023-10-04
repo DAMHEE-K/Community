@@ -13,7 +13,7 @@ import javax.validation.Path;
 import javax.validation.Valid;
 import java.net.URI;
 
-@CrossOrigin(origins = "http://localhost")
+@CrossOrigin(origins = "*")
 @RestController // @Controller인데 모든핸들러에 @ResponseBody어노테이션을 적용해준다.
 @RequestMapping("/api/travelboards")
 @Slf4j
