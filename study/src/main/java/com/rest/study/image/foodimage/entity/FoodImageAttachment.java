@@ -14,7 +14,6 @@ import javax.persistence.*;
 @ToString(exclude = "foodBoard")
 @Table(name = "image_attachment")
 public class FoodImageAttachment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_IMAGE_ID")
     private Long imageId;

@@ -23,8 +23,6 @@ public class FoodBoard {
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SEQ_FOOD_BOARD_ID")
     private Long foodId; // null을 확인하기 위해서 참조형으로
 
-//    private String foodMemberId;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "food_user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)

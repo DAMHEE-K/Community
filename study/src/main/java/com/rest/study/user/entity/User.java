@@ -33,7 +33,6 @@ public class User {
     @Column(nullable = false)
     private String phone;
 
-    @CreationTimestamp
-    private Date enrollDate;
-
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
 }

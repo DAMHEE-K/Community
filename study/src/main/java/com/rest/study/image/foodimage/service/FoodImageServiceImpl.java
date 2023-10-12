@@ -3,7 +3,7 @@ package com.rest.study.image.foodimage.service;
 import com.rest.study.board.foodboard.entity.FoodBoard;
 import com.rest.study.image.foodimage.entity.FoodImageAttachment;
 import com.rest.study.image.foodimage.repository.FoodImageRepository;
-import com.rest.study.common.controller.StringUtils;
+import com.rest.study.common.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -3,27 +3,22 @@ package com.rest.study.board.foodboard.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
 import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
-import com.rest.study.board.foodboard.entity.FoodBoard;
 import com.rest.study.board.foodboard.service.FoodBoardService;
-import com.rest.study.common.controller.StringUtils;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.sql.Timestamp;
 import java.util.List;
 
 
 @CrossOrigin(origins ="*")
 @Slf4j
-@RestController
+@RestController //  Json 형태로 객체 데이터를 반환하는 Controller
 @RequestMapping("/api/foodboards")
 // @Controller 모든 핸들러에 @ResponseBody 어노테이션 적용해줌
 // @ResponseBody 핸들러에 반환된 자바 객체를 Response Body에 써줌

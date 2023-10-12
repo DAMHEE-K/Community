@@ -1,4 +1,4 @@
-package com.rest.study.common.controller;
+package com.rest.study.common.utils;
 
 import javax.persistence.Converter;
 import java.sql.Timestamp;
