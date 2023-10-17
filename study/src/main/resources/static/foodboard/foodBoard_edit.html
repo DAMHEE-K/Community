@@ -52,7 +52,7 @@
     const url = new URL(window.location.href);
     const id = url.pathname.split('/').pop();
 
-    fetch(`http://localhost:8080/api/foodboards/${id}`)
+    fetch(`http://localhost:5000/api/foodboards/${id}`)
         .then(response => {
             if (response.ok) {
                 return response.json();

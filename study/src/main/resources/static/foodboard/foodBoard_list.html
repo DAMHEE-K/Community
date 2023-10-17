@@ -52,7 +52,7 @@
     let currentPage = 0; // 현재 페이지 (0부터 시작)
 
     function fetchBoards(page) {
-        fetch(`http://localhost:8080/api/foodboards?page=${page}&size=5`)
+        fetch(`http://localhost:5000/api/foodboards?page=${page}&size=5`)
             .then(response => response.json())
             .then(boards => {
                 boardList.innerHTML = '';
