@@ -20,14 +20,13 @@ import java.util.List;
 @Builder
 public class FoodBoard {
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SEQ_FOOD_BOARD_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long foodId; // null을 확인하기 위해서 참조형으로
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "food_user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
-
 
     @Column(nullable = false, length = 500)
     private String foodTitle;

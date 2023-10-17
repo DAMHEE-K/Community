@@ -17,10 +17,17 @@
     .table td {
         border-bottom: 1px solid #dee2e6;
     }
+    .pagination{
+        display: flex;
+        justify-content: center;
+    }
+    .pagination button{
+        border: 1px solid #dee2e6;
+    }
 </style>
 <body>
 <div class="container my-3">
-    <a class="navbar-brand" href="/" style="margin-bottom: 50px;">맛있는여행</a>
+    <a class="navbar-brand" href="/" style="margin-bottom: 50px;">Community</a>
     <table class="table">
         <thead style="background-color: white;">
         <tr>
@@ -32,28 +39,53 @@
         </thead>
         <tbody id="boardList"></tbody>
     </table>
+    <div class="pagination">
+        <button class="btn" id="prevPage">이전</button>
+        <span class="btn" id="currentPage">페이지 1</span>
+        <button class="btn" id="nextPage">다음</button>
+    </div>
     <button class="btn btn-light" id="writeButton" style="border: 1px solid #dee2e6;">글쓰기</button>
 </div>
 <script>
-    fetch('http://localhost:8080/api/foodboards')
-        .then(response => response.json())
-        .then(boards => {
-            const boardList = document.getElementById('boardList');
-            boards.forEach(board => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${board.foodId}</td>
-                <td><a href="/foodboards/${board.foodId}">${board.foodTitle}</a></td>
-                <td>${board.userId}</td>
-                <td>${board.foodCreatedAt}</td>`;
-                boardList.appendChild(tr);
-            });
-        })
-        .catch(error => console.error('Error fetching boards:', error));
+    const boardList = document.getElementById('boardList');
+    const currentPageSpan = document.getElementById('currentPage');
+    let currentPage = 0; // 현재 페이지 (0부터 시작)
+
+    function fetchBoards(page) {
+        fetch(`http://localhost:8080/api/foodboards?page=${page}&size=5`)
+            .then(response => response.json())
+            .then(boards => {
+                boardList.innerHTML = '';
+                boards.forEach(board => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${board.foodId}</td>
+              <td><a href="/foodboards/${board.foodId}">${board.foodTitle}</a></td>
+              <td>${board.userId}</td>
+              <td>${board.foodCreatedAt}</td>`;
+                    boardList.appendChild(tr);
+                });
+                // 페이지 번호 업데이트
+                currentPage = page;
+                currentPageSpan.textContent = `페이지 ${currentPage + 1}`;
+            })
+            .catch(error => console.error('Error fetching boards:', error));
+    }
 
     document.getElementById("writeButton").addEventListener("click", function() {
-        location.href='foodboards/writeBoard';
+        location.href = 'foodboards/writeBoard';
     });
 
+    document.getElementById("prevPage").addEventListener("click", function() {
+        if (currentPage > 0) {
+            fetchBoards(currentPage - 1);
+        }
+    });
+
+    document.getElementById("nextPage").addEventListener("click", function() {
+        fetchBoards(currentPage + 1);
+    });
+
+    fetchBoards(currentPage);
 </script>
 </body>
 </html>

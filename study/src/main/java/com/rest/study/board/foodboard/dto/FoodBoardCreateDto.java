@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 public class FoodBoardCreateDto {
 
-//    private User user;
     private String foodUserId;
 
     @NotBlank(message = "제목은 필수입니다.")
@@ -27,7 +26,7 @@ public class FoodBoardCreateDto {
 
     private MultipartFile images;
 
-    private int foodId;
+    private Long foodId;
 
     public FoodBoard toFoodBoard(User user) {
         return FoodBoard.builder()

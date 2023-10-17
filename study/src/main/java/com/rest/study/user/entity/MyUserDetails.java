@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-@Data
 @ToString(callSuper = true)
 public class MyUserDetails extends User implements UserDetails {
 

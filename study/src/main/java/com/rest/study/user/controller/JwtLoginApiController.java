@@ -3,7 +3,6 @@ package com.rest.study.user.controller;
 import com.rest.study.common.utils.JwtTokenProvider;
 import com.rest.study.user.dto.JoinUserDto;
 import com.rest.study.user.dto.LoginUserDto;
-import com.rest.study.user.entity.MyUserDetails;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.repository.UserRepository;
 import com.rest.study.user.service.UserService;

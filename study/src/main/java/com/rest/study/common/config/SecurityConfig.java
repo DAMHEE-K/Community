@@ -2,9 +2,7 @@ package com.rest.study.common.config;
 
 import com.rest.study.common.filter.JwtTokenFilter;
 import com.rest.study.common.utils.JwtTokenProvider;
-import com.rest.study.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration // 설정 클래스 정의
@@ -27,9 +24,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
-    private static String secretKey = "my-secret-key-123123";
-
 
     // ROLE_ 자동추가해줌
     public  void configure(HttpSecurity http) throws Exception {

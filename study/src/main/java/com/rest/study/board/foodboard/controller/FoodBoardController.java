@@ -8,6 +8,9 @@ import com.rest.study.user.entity.User;
 import com.rest.study.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +25,7 @@ import java.util.List;
 @RequestMapping("/api/foodboards")
 // @Controller 모든 핸들러에 @ResponseBody 어노테이션 적용해줌
 // @ResponseBody 핸들러에 반환된 자바 객체를 Response Body에 써줌
-public class FoodBoardApiController {
+public class FoodBoardController {
 
     @Autowired
     private UserService userService;
@@ -34,8 +37,8 @@ public class FoodBoardApiController {
     private ObjectMapper objectMapper;
 
     @GetMapping
-    public ResponseEntity<List<FoodBoardReadDto>> getBoards() {
-        return ResponseEntity.ok(foodBoardService.findBoards());
+    public ResponseEntity<List<FoodBoardReadDto>> getBoards(@PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
+        return ResponseEntity.ok(foodBoardService.findBoards(pageable));
     }
 
     @GetMapping("/{id}")

@@ -1,5 +1,6 @@
 package com.rest.study.common.utils;
 
+import com.rest.study.user.entity.MyUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -24,7 +25,7 @@ import java.util.List;
 public class JwtTokenProvider {
     // 원래는 application 문서에 숨겨둬야 함
     private static String secretKey = "community-secret";
-    private static long tokenValidTime = 30 * 60 * 1000L; // 유효시간
+    private static final long tokenValidTime = 30 * 60 * 1000L; // 유효시간
 
     private final UserDetailsService userDetailsService;
 
@@ -55,7 +56,7 @@ public class JwtTokenProvider {
 
     // jwt 토큰에서 인증 조회
     public Authentication getAuthentication(String token) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(this.getUserPk(token));
+        MyUserDetails userDetails = (MyUserDetails) userDetailsService.loadUserByUsername(this.getUserPk(token));
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
 

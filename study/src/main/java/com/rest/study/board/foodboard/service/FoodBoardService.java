@@ -4,6 +4,7 @@ import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
 import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
 import com.rest.study.board.foodboard.entity.FoodBoard;
 import com.rest.study.user.entity.User;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface FoodBoardService {
     void deleteById(Long id);
 
     FoodBoardReadDto editBoard(Long id, FoodBoardCreateDto foodBoardDto, User user);
-    List<FoodBoardReadDto> findBoards();
+    List<FoodBoardReadDto> findBoards(Pageable pageable);
 }

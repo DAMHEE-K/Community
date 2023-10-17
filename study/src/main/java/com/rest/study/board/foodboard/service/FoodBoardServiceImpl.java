@@ -12,6 +12,9 @@ import com.rest.study.user.entity.User;
 import com.rest.study.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,8 +43,8 @@ public class FoodBoardServiceImpl implements FoodBoardService{
     private UserService userService;
 
     @Override
-    public List<FoodBoardReadDto> findBoards() {
-        List<FoodBoard> boards = foodBoardRepository.findAllByOrderByFoodIdDesc();
+    public List<FoodBoardReadDto> findBoards(Pageable pageable) {
+        Page<FoodBoard> boards = foodBoardRepository.findAll(pageable);
         List<FoodBoardReadDto> boardDtoList = new ArrayList<>();
         boards.stream().forEach(i -> boardDtoList.add(FoodBoardReadDto.toDto(i)));
         return boardDtoList;
