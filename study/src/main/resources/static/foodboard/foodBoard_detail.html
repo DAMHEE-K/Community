@@ -52,7 +52,7 @@
     const id = url.pathname.split('/').pop();
     const imagesElement = document.getElementById('images');
 
-    fetch(`http://localhost:8080/api/foodboards/${id}`)
+    fetch(`http://localhost:5000/api/foodboards/${id}`)
         .then(response => response.json())
         .then(({ foodTitle, userId, foodCreatedAt, foodContent, images }) => {
             document.querySelector("#title").innerHTML = `${foodTitle}`;

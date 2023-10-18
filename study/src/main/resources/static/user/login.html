@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+  <div class="container my-3">
+    <a class="navbar-brand" href="/" style="margin-bottom: 50px;">Community</a>
+    <h1 id="title" class="display-4">Login</h1>
+    <form id="loginFrm">
+      <p class="lead"><strong>ID:</strong> <span id="userId"></span></p>
+      <p class="lead"><strong>PASSWORD:</strong> <span id="createdAt"></span></p>
+      <hr>
+    </form>
+    <button class="btn btn-primary" style="background-color: #58acfa; border: none;" onclick="loginUser()">Login</button>
+    <a href="/foodboards" class="btn btn-secondary" style="background-color: #c8c8c8; border: none;">돌아가기</a>
+  </div>
+
+  <script>
+    function loginUser() {
+      const form = document.querySelector("#loginFrm");
+
+      // fetch("/login", {
+      //   method : "GET",
+      //   body : form
+      // }).then(response => {
+      //   return response.json();
+      // } else {
+      //   throw new Error("네트워크 오류");
+      // }
+      // .then(data => {
+      //   alert("게시글 작성이 완료되었습니다.");
+      //   window.location.href = "/foodboards";
+      // }).catch(error => {
+      //   console.error("Fetch error:", error);
+      // });
+
+    }
+
+
+  </script>
+</body>
+</html>
