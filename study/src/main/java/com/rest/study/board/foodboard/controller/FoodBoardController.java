@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins ="http://localhost:8080")
 @Slf4j
 @RestController //  Json 형태로 객체 데이터를 반환하는 Controller
 @RequestMapping("/api/foodboards")
