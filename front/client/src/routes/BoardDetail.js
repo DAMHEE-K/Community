@@ -10,7 +10,6 @@ const BoardDetail = () => {
     const getBoard = async() => {
         const resp = await axios.get(`//localhost:5000/api/foodboards/${foodId}`);
         const data = resp.data;
-        console.log(data);
         setBoard(data);
         setLoading(false);
     }

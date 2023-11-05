@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Tr from "../component/Tr";
 
 const BoardList = () => {
+  const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
 
   const getBoardList = async () => {
@@ -14,6 +16,10 @@ const BoardList = () => {
     } catch (error) {
       console.error('데이터 오류 발생:', error);
     }
+  }
+  
+  const writeBoard = () => {
+    navigate('/write');
   }
 
   useEffect(() => {
@@ -34,6 +40,9 @@ const BoardList = () => {
             </thead>
             <Tr boardList={boardList} />
         </table>
+        <div>
+          <button onClick={writeBoard}>글쓰기</button>
+        </div>
     </div>
   );
 };
