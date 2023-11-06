@@ -1,0 +1,28 @@
+.board-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .board-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .board-container p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .board-container hr {
+    margin: 15px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+  }
+  
+  .button-div {
+    display: flex;
+    justify-content: space-between;
+  }

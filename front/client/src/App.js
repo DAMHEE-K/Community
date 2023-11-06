@@ -1,6 +1,5 @@
 import './App.css';
 import {Route, Routes} from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css"; 
 import BoardList from './routes/BoardList';
 import Home from "./routes/Home";
 import React from 'react';

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './Board.css'
 
 const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }) => {
     const navigate = useNavigate();
@@ -39,8 +40,8 @@ const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }
     }
 
     return(
-    <div className="container mt-5">
-        <div className="border p-4">
+    <div className="board-contaiber">
+        <div>
             <h1>{foodTitle}</h1>
             <p>글 번호 : {foodId}</p>
             <p>작성자 : {userId}</p>
@@ -50,10 +51,10 @@ const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }
             <div>{foodContent}</div>
             <hr />
         </div>
-        <div className="d-flex justify-content-between align-items-center">
-            <button className="btn btn-primary" onClick={updateBoard}>수정</button>
-            <button className="btn btn-danger" onClick={deleteBoard}>삭제</button>
-            <button className="btn btn-secondary" onClick={backToList}>목록</button>
+        <div className="button-div">
+            <button className="btn" onClick={updateBoard}>수정</button>
+            <button className="btn" onClick={deleteBoard}>삭제</button>
+            <button className="btn" onClick={backToList}>목록</button>
         </div>
     </div>
     );

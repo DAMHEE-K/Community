@@ -1,27 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Header.css';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav>
       <Link to="/" className="navbar-brand">
-        홈
+        HOME
       </Link>
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
+      <div className="nav-list">
+        <ul>
+          <li>
             <Link to="/board" className="nav-link">
-              게시판
+              BOARD
             </Link>
           </li>
           <li>
             <Link to="/join" className="nav-link">
-              회원가입
+              JOIN
             </Link>
           </li>
           <li>
             <Link to="/login" className="nav-link">
-              로그인
+              LOGIN
             </Link>
           </li>
         </ul>
