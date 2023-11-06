@@ -8,7 +8,15 @@ const BoardWrite = () => {
     const [board, setBoard] = useState({
         foodTitle : '',
         foodContent : '',
+        foodUserId : 'user1',
     });
+
+    const [imageFile, setImageFile] = useState(null);
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        setImageFile(file);
+    };
 
 
     const onChange = (event) => {
@@ -26,6 +34,10 @@ const BoardWrite = () => {
         formData.append('foodTitle', foodTitle);
         formData.append('foodContent', foodContent);
         formData.append('foodUserId', foodUserId);
+
+        if (imageFile) {
+            formData.append("images", imageFile);
+        }
 
         await axios.post(`//localhost:5000/api/foodboards`, 
             formData,
@@ -45,37 +57,56 @@ const BoardWrite = () => {
     };
 
     return (
-        <div>
-            <div>
-                <h1>글 수정</h1>
+        <div className="container mt-5">
+        <div className="border p-4">
+            <h1>글 작성</h1>
+            <div className="mb-3">
+            <label htmlFor="foodTitle" className="form-label">제목</label>
+            <input
+                type="text"
+                name="foodTitle"
+                value={foodTitle}
+                onChange={onChange}
+                className="form-control"
+            />
             </div>
-            <div>
-                <span>제목</span>
-                <input type="text" name="foodTitle" value={foodTitle} onChange={onChange} />
+            <div className="mb-3">
+            <label htmlFor="foodUserId" className="form-label">작성자</label>
+            <input
+                type="text"
+                name="foodUserId"
+                value={foodUserId}
+                className="form-control"
+            />
             </div>
-            <div>
-                <span>작성자</span>
-                <input
-                    type="text"
-                    name="foodUserId"
-                    value={foodUserId}
-                />
+            <div className="mb-3">
+            <label htmlFor="images" className="form-label">이미지 업로드</label>
+            <input
+                name="images"
+                type="file"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleImageChange}
+                className="form-control"
+            />
             </div>
-            <div>
-                <span>내용</span>
-                <textarea
-                    name="foodContent"
-                    cols="30"
-                    rows="20"
-                    value={foodContent}
-                    onChange={onChange}
-                ></textarea>
+            <div className="mb-3">
+            <label htmlFor="foodContent" className="form-label">내용</label>
+            <textarea
+                name="foodContent"
+                cols="30"
+                rows="20"
+                value={foodContent}
+                onChange={onChange}
+                className="form-control"
+            ></textarea>
             </div>
-            <div>
-                <button onClick={saveBoard}>저장</button>
-                <button onClick={backToList}>돌아가기</button>
+            <div className="d-flex justify-content-between">
+            <button onClick={saveBoard} className="btn btn-primary">저장</button>
+            <button onClick={backToList} className="btn btn-secondary">돌아가기</button>
             </div>
         </div>
+        </div>
+
     );
 };
 

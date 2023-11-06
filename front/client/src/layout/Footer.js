@@ -1,12 +1,14 @@
 import React from "react";
 
 const Footer = () => {
-    return (
-        <footer>
-            <hr />
-            푸터입니다.
-        </footer>
-    );
+  return (
+    <footer className="bg-light">
+      <hr />
+      <div className="container text-center py-3">
+        footer @DAMI
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

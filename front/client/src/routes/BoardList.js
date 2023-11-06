@@ -28,22 +28,24 @@ const BoardList = () => {
 
   return (
     <div>
-        <div>맛집 정보 게시판</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일시</th>
-                </tr>
-            </thead>
-            <Tr boardList={boardList} />
-        </table>
-        <div>
-          <button onClick={writeBoard}>글쓰기</button>
-        </div>
+    <div className="container">
+      <div className="mb-3">맛집 정보 게시판</div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일시</th>
+          </tr>
+        </thead>
+        <Tr boardList={boardList} />
+      </table>
+      <div>
+        <button className="btn btn-primary" onClick={writeBoard}>글쓰기</button>
+      </div>
     </div>
+  </div>
   );
 };
 
