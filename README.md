@@ -9,7 +9,7 @@ REST API 커뮤니티 개인 프로젝트 <br />
 <li>JPA</li>
 <li>MySQL</li>
 <li>Javascript</li>
-<li>html & css</li>
+<li>React</li>
 <li>Sptring Security & JWT</li>
 
 
