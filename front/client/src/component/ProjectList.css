@@ -19,11 +19,4 @@
 .prjs-small-div:hover {
     border-radius: 10px;
     transform: translateY(-5px);
-    color: rgb(2, 2, 2);
-}
-
-.project-link {
-    text-decoration: none;
-    color: rgb(114, 114, 114);
-    font-weight: bold;
 }

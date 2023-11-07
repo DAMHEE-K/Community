@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Tr from "../component/Tr";
+import './BoardList.css';
 
 const BoardList = () => {
   const navigate = useNavigate();
@@ -28,22 +29,24 @@ const BoardList = () => {
 
   return (
     <div>
-        <div>맛집 정보 게시판</div>
-        <table>
-            <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>작성일시</th>
-                </tr>
-            </thead>
-            <Tr boardList={boardList} />
-        </table>
-        <div>
-          <button onClick={writeBoard}>글쓰기</button>
-        </div>
+    <div className="board-container">
+      <div className="board-name">맛집 정보 게시판</div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일시</th>
+          </tr>
+        </thead>
+        <Tr boardList={boardList} />
+      </table>
+      <div>
+        <button className="btn" onClick={writeBoard}>글쓰기</button>
+      </div>
     </div>
+  </div>
   );
 };
 

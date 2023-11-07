@@ -29,6 +29,7 @@ const BoardDetail = () => {
                     userId = {board.userId}
                     foodCreatedAt={board.foodCreatedAt}
                     foodContent={board.foodContent}
+                    images={board.images}
                 />
             )}
         </div>

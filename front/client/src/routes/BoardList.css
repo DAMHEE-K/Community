@@ -1,0 +1,46 @@
+/* BoardList.css */
+
+.board-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+
+th {
+  background-color: #6f90a8;
+  color: #fff;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.btn {
+  background-color: #de7f7f;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 70px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #9a9c9e;
+}

@@ -1,13 +1,15 @@
 import axios from "axios";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './Board.css'
 
-const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent }) => {
+const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }) => {
     const navigate = useNavigate();
 
     const updateBoard = () => {
         navigate('/update/' + foodId);
     };
+
 
     const deleteBoard = async() => {
         if(window.confirm("게시글을 정말 삭제하시겠습니까?")) {
@@ -22,21 +24,37 @@ const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent }) => {
         navigate('/board')
     };
 
+    const renderImages = () => {
+        if(!images) {
+            return <p>첨부된 이미지 없음</p>
+        }
+
+        if(images.originName) {
+            return (
+                <div>
+                    <p>{images.originName}</p>
+                    <img src={`http://localhost:5000/images/${images.uniqueName}`} alt={images.originName} />
+                </div>
+            )
+        }
+    }
+
     return(
-    <div>
+    <div className="board-contaiber">
         <div>
             <h1>{foodTitle}</h1>
             <p>글 번호 : {foodId}</p>
             <p>작성자 : {userId}</p>
             <p>작성일시 : {foodCreatedAt}</p>
             <hr />
+            <div>{renderImages()}</div>
             <div>{foodContent}</div>
             <hr />
         </div>
-        <div>
-            <button onClick={updateBoard}>수정</button>
-            <button onClick={deleteBoard}>삭제</button>
-            <button onClick={backToList}>목록</button>
+        <div className="button-div">
+            <button className="btn" onClick={updateBoard}>수정</button>
+            <button className="btn" onClick={deleteBoard}>삭제</button>
+            <button className="btn" onClick={backToList}>목록</button>
         </div>
     </div>
     );

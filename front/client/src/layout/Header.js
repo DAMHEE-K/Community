@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import './Header.css';
 
 const Header = () => {
 
@@ -14,11 +15,6 @@ const Header = () => {
       </Link>
       <div className="nav-list">
         <ul>
-        <li>
-            <NavLink to="/projects" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
-              PROJECTS
-            </NavLink>
-          </li>
           <li>
             <NavLink to="/board" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               BOARD

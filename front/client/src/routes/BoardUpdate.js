@@ -56,38 +56,47 @@ const BoardUpdate = () => {
     }, []);
 
     return (
-        <div>
-            <div>
-                <h1>글 작성</h1>
-            </div>
-            <div>
-                <span>제목</span>
-                <input type="text" name="foodTitle" value={foodTitle} onChange={onChange} />
-            </div>
-            <div>
-                <span>작성자</span>
-                <input
-                    type="text"
-                    name="foodUserId"
-                    value={userId}
-                    readOnly={true}
-                />
-            </div>
-            <div>
-                <span>내용</span>
-                <textarea
-                    name="foodContent"
-                    cols="30"
-                    rows="20"
-                    value={foodContent}
-                    onChange={onChange}
-                ></textarea>
-            </div>
-            <div>
-                <button onClick={updateBoard}>수정</button>
-                <button onClick={backToDetail}>취소</button>
-            </div>
+    <div className="container mt-5">
+    <div className="border p-4">
+        <h1>글 수정</h1>
+        <div className="mb-3">
+        <label htmlFor="foodTitle" className="form-label">제목</label>
+        <input
+            type="text"
+            name="foodTitle"
+            value={foodTitle}
+            onChange={onChange}
+            className="form-control"
+        />
         </div>
+        <div className="mb-3">
+        <label htmlFor="foodUserId" className="form-label">작성자</label>
+        <input
+            type="text"
+            name="foodUserId"
+            value={userId}
+            readOnly={true}
+            className="form-control"
+        />
+        </div>
+        <div className="mb-3">
+        <label htmlFor="foodContent" className="form-label">내용</label>
+        <textarea
+            name="foodContent"
+            cols="30"
+            rows="20"
+            value={foodContent}
+            onChange={onChange}
+            className="form-control"
+        ></textarea>
+        </div>
+        <div className="d-flex justify-content-between">
+        <button onClick={updateBoard} className="btn btn-primary">수정</button>
+        <button onClick={backToDetail} className="btn btn-secondary">취소</button>
+        </div>
+    </div>
+    </div>
+
     )
 }
 

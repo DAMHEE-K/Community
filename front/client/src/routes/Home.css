@@ -1,0 +1,93 @@
+  .container {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  /* 프로필 이미지 스타일 */
+  .profile-img-div {
+    text-align: center;
+  }
+  
+  .profile-img-div img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #86a4b8;
+    margin: 20px 0;
+  }
+  
+  /* 섹션 스타일 */
+  .introduce-div {
+    display: flex;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: space-around;
+  }
+  
+  .introduce-right,
+  .introduce-left {
+    flex-basis: 48%;
+  }
+  
+  .introduce-right > div,
+  .introduce-left > div {
+    margin-bottom: 20px;
+  }
+  
+  .introduce-right h4,
+  .introduce-left h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .introduce-right p,
+  .introduce-left p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* License 목록 스타일 */
+  .license-list {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  /* Education 스타일 */
+  .education-section {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Skill 카테고리 스타일 */
+  .skill-category {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* 스킬 목록 스타일 */
+  .skill-list p {
+    margin: 5px 0;
+  }
+  
+  /* Etc. 아이템 스타일 */
+  .etc-item {
+    margin-left: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+
+  .skill-title-div {
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .skill-div img{
+    width: 60px;
+    height: 20px;
+  }
