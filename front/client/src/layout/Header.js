@@ -1,29 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
+
+  const activeStyle = {
+    color : 'red',
+  }
+
   return (
     <nav>
       <Link to="/" className="navbar-brand">
-        HOME
+        KIM DAMHEE's page
       </Link>
       <div className="nav-list">
         <ul>
           <li>
-            <Link to="/board" className="nav-link">
+            <NavLink to="/board" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               BOARD
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/join" className="nav-link">
+            <NavLink to="/join" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               JOIN
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/login" className="nav-link">
+            <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               LOGIN
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

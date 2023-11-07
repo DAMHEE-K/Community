@@ -1,8 +1,9 @@
-.container {
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    width: 800px;
+  .container {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
   
   /* 프로필 이미지 스타일 */
@@ -21,8 +22,9 @@
   /* 섹션 스타일 */
   .introduce-div {
     display: flex;
-    justify-content: space-between;
     margin-top: 20px;
+    text-align: center;
+    justify-content: space-around;
   }
   
   .introduce-right,
@@ -81,6 +83,11 @@
 
 
   .skill-title-div {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 800;
+  }
+
+  .skill-div img{
+    width: 60px;
+    height: 20px;
   }

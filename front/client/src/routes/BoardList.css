@@ -17,6 +17,7 @@ th, td {
   text-align: center;
 }
 
+
 th {
   background-color: #6f90a8;
   color: #fff;
@@ -35,7 +36,7 @@ tr:nth-child(even) {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  width: 80px;
+  width: 70px;
   font-size: 13px;
   font-weight: bold;
 }

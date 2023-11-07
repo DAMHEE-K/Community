@@ -1,0 +1,22 @@
+.prjs-img {
+    width: 50px;
+    height: 30px;
+}
+.prjs-div{
+    width: 500px;
+    font-size: 13px;;
+}
+.prjs-div ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+.prjs-small-div {
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+  
+.prjs-small-div:hover {
+    border-radius: 10px;
+    transform: translateY(-5px);
+}
