@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<User, String> {
-    User findByUserId(String foodUserId);
+    User findByUserId(String userId);
 }

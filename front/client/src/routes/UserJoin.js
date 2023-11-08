@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import './User.css';
 
 
 const UserJoin = () => {
@@ -49,84 +50,69 @@ const UserJoin = () => {
 
 
   return (
-    <div className="container mt-5">
-      <h1>회원가입</h1>
-      <form onSubmit={handleRegistrationSubmit}>
-        <div className="mb-3">
-          <label htmlFor="userId" className="form-label">
-            ID
-          </label>
-          <input
-            type="text"
-            id="userId"
-            name="userId"
-            value={formData.userId}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            사용자 이름
-          </label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            이메일 주소
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            비밀번호
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="phone" className="form-label">
-            핸드폰 번호
-          </label>
-          <input
-            type="phone"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
-        <button onClick={joinUser} className="btn btn-primary">
-          가입
-        </button>
-      </form>
+<div className="container">
+  <h1>회원가입</h1>
+  <form className="registration-form" onSubmit={handleRegistrationSubmit}>
+    <div>
+      <label htmlFor="userId">ID</label>
+      <input
+        type="text"
+        id="userId"
+        name="userId"
+        value={formData.userId}
+        onChange={handleChange}
+        required
+      />
     </div>
+    <div>
+      <label htmlFor="username">사용자 이름</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="email">이메일 주소</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="password">비밀번호</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="phone">핸드폰 번호</label>
+      <input
+        type="phone"
+        id="phone"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        required
+      />
+    </div>
+    <button onClick={joinUser} className="btn">
+      가입
+    </button>
+  </form>
+</div>
   );
 };
 

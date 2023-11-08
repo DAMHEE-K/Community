@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
-
-  const activeStyle = {
-    color : 'red',
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <nav>
@@ -31,9 +28,13 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
-              LOGIN
-            </NavLink>
+            {isLoggedIn ? (
+              <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+            ) : (
+              <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+                LOGIN
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>

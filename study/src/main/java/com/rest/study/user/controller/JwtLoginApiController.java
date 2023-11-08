@@ -8,6 +8,7 @@ import com.rest.study.user.repository.UserRepository;
 import com.rest.study.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins ="http://localhost:3000")
 @RestController
 @RequiredArgsConstructor
 public class JwtLoginApiController {
@@ -44,13 +45,18 @@ public class JwtLoginApiController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginUserDto loginUserDto) {
+        System.out.println("loginUserDto = " + loginUserDto);
         User user = userService.login(loginUserDto);
 
         if (user == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("로그인 아이디 또는 비밀번호가 틀렸습니다.");
         }
         List<String> authorities = Collections.singletonList(user.getAuthority().name());
-        return ResponseEntity.ok(jwtTokenProvider.createToken(user.getUserId(), authorities));
+        String jwtToken = jwtTokenProvider.createToken(user.getUserId(), authorities);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.add("Authorization", "Bearer " + jwtToken);
+
+        return ResponseEntity.ok().headers(responseHeaders).body("Login successful");
     }
 
 

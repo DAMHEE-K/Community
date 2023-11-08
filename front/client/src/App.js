@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes} from "react-router-dom";
 import BoardList from './routes/BoardList';
 import Home from "./routes/Home";
-import React from 'react';
+import React, { useState } from 'react';
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
 import BoardUpdate from './routes/BoardUpdate';
@@ -12,6 +12,7 @@ import Profile from './routes/Profile';
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Routes>
       <Route path="/" element={<Home />}/>
@@ -20,7 +21,7 @@ function App() {
       <Route path="/write" element={<BoardWrite />} />
       <Route path="/update/:foodId" element={<BoardUpdate />} />
       <Route path="/join" element={<UserJoin />} />
-      <Route path="/login" element={<UserLogin />} />
+      <Route path="/login" element={<UserLogin setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/profile" element={<Profile />} />
     </Routes>
   );
