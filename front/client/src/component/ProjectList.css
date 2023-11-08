@@ -4,16 +4,23 @@
 }
 .prjs-div{
     width: 500px;
-    font-size: 13px;;
+    font-size: 13px;
 }
 .prjs-div ul{
     list-style: none;
     display: flex;
     justify-content: space-around;
 }
+
 .prjs-small-div {
     transition: transform 0.2s ease;
     text-align: center;
+}
+
+.github-link {
+    text-decoration: none;
+    color: rgb(46, 93, 155);
+    font-weight: bold;
 }
   
 .prjs-small-div:hover {

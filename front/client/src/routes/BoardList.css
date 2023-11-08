@@ -29,13 +29,13 @@ tr:nth-child(even) {
 }
 
 .btn {
-  background-color: #de7f7f;
+  background-color: rgb(127, 157, 222);
   color: #fff;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin: 10px;
   width: 70px;
   font-size: 13px;
   font-weight: bold;

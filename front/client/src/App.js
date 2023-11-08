@@ -8,6 +8,7 @@ import BoardWrite from './routes/BoardWrite';
 import BoardUpdate from './routes/BoardUpdate';
 import UserJoin from './routes/UserJoin';
 import UserLogin from './routes/UserLogin';
+import Profile from './routes/Profile';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/update/:foodId" element={<BoardUpdate />} />
       <Route path="/join" element={<UserJoin />} />
       <Route path="/login" element={<UserLogin />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 }

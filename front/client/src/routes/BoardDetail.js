@@ -19,7 +19,7 @@ const BoardDetail = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             {loading ? (
                 <h2>loading중...</h2>
             ) : (

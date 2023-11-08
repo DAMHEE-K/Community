@@ -11,10 +11,15 @@ const Header = () => {
   return (
     <nav>
       <Link to="/" className="navbar-brand">
-        KIM DAMHEE's page
+        Community
       </Link>
       <div className="nav-list">
         <ul>
+          <li>
+            <NavLink to="/profile" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+              About Me
+            </NavLink>
+          </li>
           <li>
             <NavLink to="/board" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               BOARD

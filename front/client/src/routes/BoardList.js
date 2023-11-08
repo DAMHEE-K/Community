@@ -29,7 +29,7 @@ const BoardList = () => {
 
   return (
     <div>
-    <div className="board-container">
+    <div className="container">
       <div className="board-name">맛집 정보 게시판</div>
       <table className="table">
         <thead>
