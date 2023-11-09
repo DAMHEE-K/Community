@@ -91,3 +91,9 @@
     width: 60px;
     height: 20px;
   }
+
+  .intro-letter {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgba(146, 146, 146, 0.505);
+  }
