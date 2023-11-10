@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }) => {
     const navigate = useNavigate();
@@ -51,9 +52,9 @@ const Board = ({ foodId, foodTitle, userId, foodCreatedAt, foodContent, images }
             <hr />
         </div>
         <div>
-            <button className="btn" onClick={updateBoard}>수정</button>
-            <button className="btn" onClick={deleteBoard}>삭제</button>
-            <button className="btn" onClick={backToList}>목록</button>
+            <Button text="수정" clickValue={updateBoard}/>
+            <Button text="삭제" clickValue={deleteBoard}/>
+            <Button text="돌아가기" clickValue={backToList}/>
         </div>
     </div>
     );

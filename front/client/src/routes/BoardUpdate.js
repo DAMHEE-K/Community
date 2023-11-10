@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Button from "../component/Button";
 
 const BoardUpdate = () => {
     const navigate = useNavigate();
@@ -91,8 +92,8 @@ const BoardUpdate = () => {
         ></textarea>
         </div>
         <div className="d-flex justify-content-between">
-        <button onClick={updateBoard} className="btn btn-primary">수정</button>
-        <button onClick={backToDetail} className="btn btn-secondary">취소</button>
+            <Button text="수정" clickValue={updateBoard}/>
+            <Button text="취소" clickValue={backToDetail}/>
         </div>
     </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from "../component/Button";
 
 const BoardWrite = () => {
     const navigate = useNavigate();
@@ -18,6 +19,9 @@ const BoardWrite = () => {
         setImageFile(file);
     };
 
+    const backToList = () => {
+        navigate("/board");
+    }
 
     const onChange = (event) => {
         const { value, name } = event.target;
@@ -52,9 +56,6 @@ const BoardWrite = () => {
         });
     };
 
-    const backToList = () => {
-        navigate('/board');
-    };
 
     return (
         <div className="container mt-5">
@@ -77,6 +78,7 @@ const BoardWrite = () => {
                 name="foodUserId"
                 value={foodUserId}
                 className="form-control"
+                readOnly
             />
             </div>
             <div className="mb-3">
@@ -101,8 +103,8 @@ const BoardWrite = () => {
             ></textarea>
             </div>
             <div className="d-flex justify-content-between">
-            <button onClick={saveBoard} className="btn btn-primary">저장</button>
-            <button onClick={backToList} className="btn btn-secondary">돌아가기</button>
+            <Button text="저장" clickValue={saveBoard} />
+            <Button text="돌아가기" clickValue={backToList} />
             </div>
         </div>
         </div>

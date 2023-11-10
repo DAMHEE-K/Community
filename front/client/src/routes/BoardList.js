@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import Tr from "../component/Tr";
+import Button from '../component/Button';
 import './BoardList.css';
 
 const BoardList = () => {
@@ -18,9 +19,9 @@ const BoardList = () => {
       console.error('데이터 오류 발생:', error);
     }
   }
-  
+
   const writeBoard = () => {
-    navigate('/write');
+    navigate("/write")
   }
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const BoardList = () => {
         <Tr boardList={boardList} />
       </table>
       <div>
-        <button className="btn" onClick={writeBoard}>글쓰기</button>
+        <Button text="글쓰기" clickValue={writeBoard} />
       </div>
     </div>
   </div>

@@ -28,19 +28,6 @@ tr:nth-child(even) {
   background-color: #f1f1f1;
 }
 
-.btn {
-  background-color: rgb(127, 157, 222);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-  width: 70px;
-  font-size: 13px;
-  font-weight: bold;
-}
-
 .btn:hover {
   background-color: #9a9c9e;
 }
