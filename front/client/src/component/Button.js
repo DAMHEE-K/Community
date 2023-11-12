@@ -1,30 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+import styles from "./Button.module.css";
 
 const Button = ({text, clickValue}) => {
-    const navigate = useNavigate();
 
-    console.log(clickValue);
+    const functionName = clickValue.name;
+
+    Button.propTypes = {
+        text: PropTypes.string.isRequired,
+        clickValue: PropTypes.func,
+    }
 
     const onClick = () => {
-        if (clickValue && typeof clickValue === 'function') {
-            clickValue();
-        }
+        clickValue();
     };
 
-    console.log(onClick);
     return (
-        <button style={{
-            backgroundColor: "rgb(127, 157, 222)",
-            color: "white",
-            padding: "10px 10px",
-            border: 0,
-            borderRadius: 10,
-            cursor: "pointer",
-            margin: 10,
-            fontSize: 13,
-            
-        }} onClick={onClick}>{text}</button>
+        <button
+            className={functionName.includes("back") ? styles["back-btn"] : styles.btn} 
+            onClick={onClick}>{text}</button>
     );
 };
 export default Button;

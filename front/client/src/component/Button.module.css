@@ -1,0 +1,21 @@
+.btn {
+    background-color: rgb(127, 157, 222);
+    color: white;
+    padding: 10px 10px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 13px;
+}
+
+.back-btn {
+    background-color: rgb(156, 156, 156);
+    color: white;
+    padding: 10px 10px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 13px;  
+}

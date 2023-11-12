@@ -1,6 +1,7 @@
 import React from "react";
 import profileImg from '../images/profile.png'
 import ProjectList from '../component/ProjectList';
+import "./Profile.css";
 
 
 const Profile = () => {

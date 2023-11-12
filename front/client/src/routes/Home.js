@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import profileImg from '../images/profile.png';
-import ProjectList from '../component/ProjectList';
-import './Home.css';
 
 const Home = () => {
   const [letters, setLetters] = useState('');
