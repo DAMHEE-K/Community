@@ -8,6 +8,16 @@ import './BoardList.css';
 const BoardList = () => {
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
+  const [keyword, setKeyword] = useState("");
+
+  const onChange = (event) => {
+    setKeyword(event.target.value)
+  }
+  useEffect(() => {
+    if(keyword !== "" && keyword.length > 5) {
+      console.log("키워드가 바뀔때만 시행될 메소드");
+    }
+  }, [keyword]);
 
   const getBoardList = async () => {
     try {
@@ -43,6 +53,12 @@ const BoardList = () => {
         </thead>
         <Tr boardList={boardList} />
       </table>
+      <input 
+        type='text' 
+        value={keyword} 
+        onChange={onChange} 
+        placeholder='검색어를 입력하세요'>  
+      </input>
       <div>
         <Button text="글쓰기" clickValue={writeBoard} />
       </div>
