@@ -41,6 +41,15 @@ public class FoodBoardController {
         return ResponseEntity.ok(foodBoardService.findBoards(pageable));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<FoodBoardReadDto>> searchBoardsByTitle (@RequestParam(name = "keyword", required = false) String keyword,
+                                                                       @PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
+        if(keyword != null && !keyword.isEmpty()) {
+            return ResponseEntity.ok(foodBoardService.searchBoardsByTitle(keyword, pageable));
+        }
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<FoodBoardReadDto> getBoard(@PathVariable Long id) {
         return ResponseEntity.ok(foodBoardService.findBoard(id));

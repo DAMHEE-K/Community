@@ -51,6 +51,14 @@ public class FoodBoardServiceImpl implements FoodBoardService{
     }
 
     @Override
+    public List<FoodBoardReadDto> searchBoardsByTitle(String keyword, Pageable pageable) {
+        Page<FoodBoard> boards = foodBoardRepository.findByFoodTitleContaining(keyword, pageable);
+        List<FoodBoardReadDto> boardDtoList = new ArrayList<>();
+        boards.stream().forEach(i -> boardDtoList.add(FoodBoardReadDto.toDto(i)));
+        return boardDtoList;
+    }
+
+    @Override
     public FoodBoardReadDto findBoard(Long id) {
         Optional<FoodBoard> optionalFoodBoard = foodBoardRepository.findById(id);
         if (optionalFoodBoard.isPresent()) {

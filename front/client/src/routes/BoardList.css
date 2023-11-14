@@ -17,7 +17,6 @@ th, td {
   text-align: center;
 }
 
-
 th {
   background-color: #6f90a8;
   color: #fff;
@@ -30,4 +29,10 @@ tr:nth-child(even) {
 
 .btn:hover {
   background-color: #9a9c9e;
+}
+
+.notification {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
 }
