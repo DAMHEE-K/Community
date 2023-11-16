@@ -1,6 +1,7 @@
 package com.rest.study.board.foodboard.service;
 
 import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
+import com.rest.study.board.foodboard.dto.FoodBoardListDto;
 import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
 import com.rest.study.board.foodboard.entity.FoodBoard;
 import com.rest.study.board.foodboard.repository.FoodBoardRepository;
@@ -13,7 +14,6 @@ import com.rest.study.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,19 +43,23 @@ public class FoodBoardServiceImpl implements FoodBoardService{
     private UserService userService;
 
     @Override
-    public List<FoodBoardReadDto> findBoards(Pageable pageable) {
+    public FoodBoardListDto findBoards(Pageable pageable) {
         Page<FoodBoard> boards = foodBoardRepository.findAll(pageable);
-        List<FoodBoardReadDto> boardDtoList = new ArrayList<>();
-        boards.stream().forEach(i -> boardDtoList.add(FoodBoardReadDto.toDto(i)));
-        return boardDtoList;
+        FoodBoardListDto foodBoardListDto = new FoodBoardListDto();
+        Long totalCnt = foodBoardRepository.count();
+        foodBoardListDto.setTotalCnt(totalCnt);
+        boards.stream().forEach(i -> foodBoardListDto.getFoodBoardList().add(FoodBoardReadDto.toDto(i)));
+        return foodBoardListDto;
     }
 
     @Override
-    public List<FoodBoardReadDto> searchBoardsByTitle(String keyword, Pageable pageable) {
+    public FoodBoardListDto searchBoardsByTitle(String keyword, Pageable pageable) {
         Page<FoodBoard> boards = foodBoardRepository.findByFoodTitleContaining(keyword, pageable);
-        List<FoodBoardReadDto> boardDtoList = new ArrayList<>();
-        boards.stream().forEach(i -> boardDtoList.add(FoodBoardReadDto.toDto(i)));
-        return boardDtoList;
+        FoodBoardListDto foodBoardListDto = new FoodBoardListDto();
+        Long totalCnt = foodBoardRepository.countByFoodTitleContaining(keyword);
+        foodBoardListDto.setTotalCnt(totalCnt);
+        boards.stream().forEach(i -> foodBoardListDto.getFoodBoardList().add(FoodBoardReadDto.toDto(i)));
+        return foodBoardListDto;
     }
 
     @Override

@@ -15,4 +15,6 @@ public interface FoodBoardRepository extends JpaRepository<FoodBoard, Long> {
     Page<FoodBoard> findAll(Pageable pageable);
 
     Page<FoodBoard> findByFoodTitleContaining(@Param("food_title") String keyword, Pageable pageable);
+
+    Long countByFoodTitleContaining(String keyword);
 }

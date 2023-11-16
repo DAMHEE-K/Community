@@ -2,6 +2,7 @@ package com.rest.study.board.foodboard.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
+import com.rest.study.board.foodboard.dto.FoodBoardListDto;
 import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
 import com.rest.study.board.foodboard.service.FoodBoardService;
 import com.rest.study.user.entity.User;
@@ -37,12 +38,12 @@ public class FoodBoardController {
     private ObjectMapper objectMapper;
 
     @GetMapping
-    public ResponseEntity<List<FoodBoardReadDto>> getBoards(@PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<FoodBoardListDto> getBoards(@PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
         return ResponseEntity.ok(foodBoardService.findBoards(pageable));
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<FoodBoardReadDto>> searchBoardsByTitle (@RequestParam(name = "keyword", required = false) String keyword,
+    public ResponseEntity<FoodBoardListDto> searchBoardsByTitle (@RequestParam(name = "keyword", required = false) String keyword,
                                                                        @PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
         if(keyword != null && !keyword.isEmpty()) {
             return ResponseEntity.ok(foodBoardService.searchBoardsByTitle(keyword, pageable));

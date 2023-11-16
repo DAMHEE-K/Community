@@ -1,6 +1,7 @@
 package com.rest.study.board.foodboard.service;
 
 import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
+import com.rest.study.board.foodboard.dto.FoodBoardListDto;
 import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
 import com.rest.study.board.foodboard.entity.FoodBoard;
 import com.rest.study.user.entity.User;
@@ -16,7 +17,7 @@ public interface FoodBoardService {
     void deleteById(Long id);
 
     FoodBoardReadDto editBoard(Long id, FoodBoardCreateDto foodBoardDto, User user);
-    List<FoodBoardReadDto> findBoards(Pageable pageable);
+    FoodBoardListDto findBoards(Pageable pageable);
 
-    List<FoodBoardReadDto> searchBoardsByTitle(String keyword, Pageable pageable);
+    FoodBoardListDto searchBoardsByTitle(String keyword, Pageable pageable);
 }

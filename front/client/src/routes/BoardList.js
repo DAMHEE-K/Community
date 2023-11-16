@@ -14,13 +14,13 @@ const BoardList = () => {
     setKeyword(event.target.value)
   }
   
-
   const getBoardList = async () => {
     try {
       const resp = await axios.get(`//localhost:5000/api/foodboards`);
       const data = resp.data;
       console.log("Data fetched:", data);
-      setBoardList(data);
+
+      setBoardList(data.foodBoardList);
     } catch (error) {
       console.error('데이터 오류 발생:', error);
     }
