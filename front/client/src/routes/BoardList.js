@@ -38,7 +38,7 @@ const BoardList = () => {
     try {
       const resp = await axios.get(`//localhost:5000/api/foodboards/search?keyword=${keyword}`);
       const data = resp.data;
-      setBoardList(data);
+      setBoardList(data.foodBoardList);
      } catch(error) {
       console.error('데이터 오류 발생:', error);
      }
