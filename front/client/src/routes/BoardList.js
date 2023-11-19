@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
+import Pagebar from '../component/Pagebar';
 import axios from "axios";
 import Tr from "../component/Tr";
 import Button from '../component/Button';
@@ -9,17 +10,19 @@ const BoardList = () => {
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const [totalCnt, setTotalCnt] = useState();
+  const [page, setPage] = useState(0);
 
   const onChange = (event) => {
     setKeyword(event.target.value)
   }
   
-  const getBoardList = async () => {
+  const getBoardList = async(page) => {
     try {
-      const resp = await axios.get(`//localhost:5000/api/foodboards`);
+      const resp = await axios.get(`//localhost:5000/api/foodboards?page=${page}`);
       const data = resp.data;
       console.log("Data fetched:", data);
-
+      setTotalCnt(data.totalCnt);
       setBoardList(data.foodBoardList);
     } catch (error) {
       console.error('데이터 오류 발생:', error);
@@ -31,8 +34,8 @@ const BoardList = () => {
   }
 
   useEffect(() => {
-    getBoardList();
-  }, []);
+    getBoardList(page);
+  }, [page]);
 
   const searchKeyword = async() => {
     try {
@@ -71,6 +74,9 @@ const BoardList = () => {
       </div>
       <div>
         <Button text="글쓰기" clickValue={writeBoard} />
+      </div>
+      <div>
+        <Pagebar totalCnt={totalCnt} currentPage={page} handlePageChange={getBoardList}/>
       </div>
     </div>
   );
