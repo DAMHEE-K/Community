@@ -53,8 +53,13 @@ public class FoodBoardServiceImpl implements FoodBoardService{
     }
 
     @Override
-    public FoodBoardListDto searchBoardsByTitle(String keyword, Pageable pageable) {
-        Page<FoodBoard> boards = foodBoardRepository.findByFoodTitleContaining(keyword, pageable);
+    public FoodBoardListDto searchBoards(String keyword, String searchType, Pageable pageable) {
+        Page<FoodBoard> boards = null;
+        if(searchType.equals("title")) {
+            boards = foodBoardRepository.findByFoodTitleContaining(keyword, pageable);
+        } else {
+            boards = foodBoardRepository.findByFoodContentContaining(keyword, pageable);
+        }
         FoodBoardListDto foodBoardListDto = new FoodBoardListDto();
         Long totalCnt = foodBoardRepository.countByFoodTitleContaining(keyword);
         foodBoardListDto.setTotalCnt(totalCnt);

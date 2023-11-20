@@ -43,10 +43,11 @@ public class FoodBoardController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<FoodBoardListDto> searchBoardsByTitle (@RequestParam(name = "keyword", required = false) String keyword,
+    public ResponseEntity<FoodBoardListDto> searchBoards (@RequestParam(name = "keyword", required = false) String keyword,
+                                                                       @RequestParam(name="type", required = false) String searchType,
                                                                        @PageableDefault(size = 5, sort = "foodId", direction = Sort.Direction.DESC) Pageable pageable) {
         if(keyword != null && !keyword.isEmpty()) {
-            return ResponseEntity.ok(foodBoardService.searchBoardsByTitle(keyword, pageable));
+            return ResponseEntity.ok(foodBoardService.searchBoards(keyword, searchType, pageable));
         }
         return ResponseEntity.noContent().build();
     }

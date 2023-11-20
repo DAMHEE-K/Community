@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Button from "../component/Button";
 import './User.css';
 
 const UserLogin = ({ setIsLoggedIn }) => {
@@ -69,9 +70,7 @@ const UserLogin = ({ setIsLoggedIn }) => {
                     placeholder="password 입력"
                   />
                 </div>
-                <button onClick={loginUser} className="btn">
-                  Login
-                </button>
+                <Button text="login" clickValue={loginUser} />
               </form>
           </div>
       </div>

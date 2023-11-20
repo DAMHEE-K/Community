@@ -11,10 +11,15 @@ const BoardList = () => {
   const [boardList, setBoardList] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [totalCnt, setTotalCnt] = useState();
+  const [searchType, setSearchType] = useState("title");
   const [page, setPage] = useState(0);
 
   const onChange = (event) => {
-    setKeyword(event.target.value)
+    setKeyword(event.target.value);
+  }
+
+  const onChangeSearchType = (event) => {
+    setSearchType(event.target.value);
   }
   
   const getBoardList = async(page) => {
@@ -39,7 +44,7 @@ const BoardList = () => {
 
   const searchKeyword = async() => {
     try {
-      const resp = await axios.get(`//localhost:5000/api/foodboards/search?keyword=${keyword}`);
+      const resp = await axios.get(`//localhost:5000/api/foodboards/search?type=${searchType}&keyword=${keyword}`);
       const data = resp.data;
       setBoardList(data.foodBoardList);
      } catch(error) {
@@ -64,11 +69,15 @@ const BoardList = () => {
         }
       </table>
       <div>
+        <select value={searchType} onChange={onChangeSearchType}>
+          <option value="title">제목</option>
+          <option value="content">내용</option>
+        </select>
         <input 
           type='text' 
           value={keyword} 
           onChange={onChange} 
-          placeholder='검색어를 입력하세요'>  
+          placeholder='키워드를 입력하세요'>  
         </input>
         <Button text="검색" value={keyword} clickValue={searchKeyword}/>
       </div>

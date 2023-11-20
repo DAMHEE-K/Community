@@ -19,5 +19,5 @@ public interface FoodBoardService {
     FoodBoardReadDto editBoard(Long id, FoodBoardCreateDto foodBoardDto, User user);
     FoodBoardListDto findBoards(Pageable pageable);
 
-    FoodBoardListDto searchBoardsByTitle(String keyword, Pageable pageable);
+    FoodBoardListDto searchBoards(String keyword, String searchType, Pageable pageable);
 }
