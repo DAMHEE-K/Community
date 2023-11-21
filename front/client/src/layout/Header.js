@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   return (
     <nav>
@@ -28,13 +28,14 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            {isLoggedIn ? (
-              <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-            ) : (
-              <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
-                LOGIN
-              </NavLink>
-            )}
+            <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+              LOGIN
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/userInfo" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+              UserInfo
+            </NavLink>
           </li>
         </ul>
       </div>

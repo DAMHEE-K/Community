@@ -3,15 +3,18 @@ import {Route, Routes} from "react-router-dom";
 import BoardList from './routes/BoardList';
 import Home from "./routes/Home";
 import React, { useState } from 'react';
+import { Cookies } from 'react-cookie'
 import BoardDetail from './routes/BoardDetail';
 import BoardWrite from './routes/BoardWrite';
 import BoardUpdate from './routes/BoardUpdate';
 import UserJoin from './routes/UserJoin';
 import UserLogin from './routes/UserLogin';
 import Profile from './routes/Profile';
+import UserInfo from './routes/UserInfo';
 
 
 function App() {
+  const cookie = new Cookies();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Routes>
@@ -23,6 +26,7 @@ function App() {
       <Route path="/join" element={<UserJoin />} />
       <Route path="/login" element={<UserLogin setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/userInfo" element={<UserInfo />} />
     </Routes>
   );
 }

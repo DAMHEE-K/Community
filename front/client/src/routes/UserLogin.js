@@ -4,7 +4,7 @@ import axios from "axios";
 import Button from "../component/Button";
 import './User.css';
 
-const UserLogin = ({ setIsLoggedIn }) => {
+const UserLogin = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,17 +29,21 @@ const UserLogin = ({ setIsLoggedIn }) => {
       userId : formData.userId,
       password : formData.password,
     };
-    console.log(userData);
-
-    const resp = await axios.post("//localhost:5000/login",userData, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((resp) => {
-      alert("로그인 성공");
-      setIsLoggedIn(true);
+    
+    try {
+      const reps = await axios.post("//localhost:5000/login", userData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    
+      const token = reps.data;
+      localStorage.setItem('authorization', token);
+      
       navigate('/');
-    });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
     return (

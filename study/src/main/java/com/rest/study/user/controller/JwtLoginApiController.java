@@ -56,7 +56,18 @@ public class JwtLoginApiController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.add("Authorization", "Bearer " + jwtToken);
 
-        return ResponseEntity.ok().headers(responseHeaders).body("Login successful");
+        return ResponseEntity.ok().headers(responseHeaders).body(jwtToken);
+    }
+
+    @GetMapping("/user-info")
+    public ResponseEntity<User> getUserInfo(@RequestHeader("Authorization") String token) {
+        String userId = jwtTokenProvider.getUserPk(token.replace("Bearer ", ""));
+        User user = userRepository.findByUserId(userId);
+        if(user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
 
