@@ -24,7 +24,7 @@ const BoardList = () => {
   
   const getBoardList = async(page) => {
     try {
-      const resp = await axios.get(`//localhost:5000/api/foodboards?page=${page}`);
+      const resp = await axios.get(`//localhost:5000/boards?page=${page}`);
       const data = resp.data;
       console.log("Data fetched:", data);
       setTotalCnt(data.totalCnt);
@@ -44,7 +44,7 @@ const BoardList = () => {
 
   const searchKeyword = async() => {
     try {
-      const resp = await axios.get(`//localhost:5000/api/foodboards/search?type=${searchType}&keyword=${keyword}`);
+      const resp = await axios.get(`//localhost:5000/boards/search?type=${searchType}&keyword=${keyword}`);
       const data = resp.data;
       setBoardList(data.foodBoardList);
      } catch(error) {

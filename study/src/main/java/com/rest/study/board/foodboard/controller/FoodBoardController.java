@@ -23,7 +23,7 @@ import java.util.List;
 @CrossOrigin(origins ="http://localhost:3000")
 @Slf4j
 @RestController //  Json 형태로 객체 데이터를 반환하는 Controller
-@RequestMapping("/api/foodboards")
+@RequestMapping("/boards")
 // @Controller 모든 핸들러에 @ResponseBody 어노테이션 적용해줌
 // @ResponseBody 핸들러에 반환된 자바 객체를 Response Body에 써줌
 public class FoodBoardController {

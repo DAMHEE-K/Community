@@ -31,7 +31,7 @@ const UserLogin = () => {
     };
     
     try {
-      const reps = await axios.post("//localhost:5000/login", userData, {
+      const reps = await axios.post("//localhost:5000/user/login", userData, {
         headers: {
           "Content-Type": "application/json",
         },

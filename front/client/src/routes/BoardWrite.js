@@ -43,7 +43,7 @@ const BoardWrite = () => {
             formData.append("images", imageFile);
         }
 
-        await axios.post(`//localhost:5000/api/foodboards`, 
+        await axios.post(`//localhost:5000/boards`, 
             formData,
             {
                 headers: {

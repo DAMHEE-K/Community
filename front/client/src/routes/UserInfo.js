@@ -9,7 +9,7 @@ const UserInfo = () => {
   const getUserInfo = async () => {
     try {
       if (token) {
-        const resp = await axios.get(`http://localhost:5000/user-info`, {
+        const resp = await axios.get(`http://localhost:5000/user/info`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -25,6 +25,10 @@ const UserInfo = () => {
   useEffect(() => {
     getUserInfo();
   }, [token]);
+
+  const updateUser = async() => {
+    const resp = await axios.patch(`//localhost:5000/user/update`)
+  }
 
   return (
     <div className="container">
@@ -84,6 +88,9 @@ const UserInfo = () => {
                   readOnly
                   required
                 />
+              </div>
+              <div>
+                <Button text="수정" clickValue={updateUser} />
               </div>
             </>
           )}

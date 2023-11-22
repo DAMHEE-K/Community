@@ -37,7 +37,7 @@ const UserJoin = () => {
         phone: formData.phone,
       };
 
-    const resp = await axios.post("//localhost:5000/join", userData, {
+    const resp = await axios.post("//localhost:5000/user/join", userData, {
         headers: {
             "Content-Type": "application/json",
         },

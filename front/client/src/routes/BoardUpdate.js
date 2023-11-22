@@ -25,7 +25,7 @@ const BoardUpdate = () => {
     };
 
     const getBoard = async() => {
-        const resp = await axios.get(`//localhost:5000/api/foodboards/${foodId}`)
+        const resp = await axios.get(`//localhost:5000/boards/${foodId}`)
         const data = resp.data;
         setBoard(data);
     };
@@ -36,7 +36,7 @@ const BoardUpdate = () => {
         formData.append('foodContent', foodContent);
         formData.append('foodUserId', userId);
 
-        await axios.patch(`//localhost:5000/api/foodboards/${foodId}`, 
+        await axios.patch(`//localhost:5000/boards/${foodId}`, 
         formData,
         {
             headers: {

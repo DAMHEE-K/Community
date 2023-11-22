@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins ="http://localhost:3000")
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class JwtLoginApiController {
 
     @Autowired
@@ -59,7 +60,7 @@ public class JwtLoginApiController {
         return ResponseEntity.ok().headers(responseHeaders).body(jwtToken);
     }
 
-    @GetMapping("/user-info")
+    @GetMapping("/info")
     public ResponseEntity<User> getUserInfo(@RequestHeader("Authorization") String token) {
         String userId = jwtTokenProvider.getUserPk(token.replace("Bearer ", ""));
         User user = userRepository.findByUserId(userId);
@@ -68,6 +69,11 @@ public class JwtLoginApiController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+    }
+
+    @PatchMapping("/update")
+    public ResponseEntity<User> updateUserInfo(@RequestHeader("Authorization") String token) {
+        return null;
     }
 
 
