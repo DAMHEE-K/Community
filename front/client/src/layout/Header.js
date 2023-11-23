@@ -23,17 +23,17 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/join" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+            <NavLink to="users/join" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               JOIN
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+            <NavLink to="users/login" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               LOGIN
             </NavLink>
           </li>
           <li>
-            <NavLink to="/userInfo" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
+            <NavLink to="users/info" className={({ isActive }) => ( isActive ? "nav-link-active": "nav-link")}>
               UserInfo
             </NavLink>
           </li>

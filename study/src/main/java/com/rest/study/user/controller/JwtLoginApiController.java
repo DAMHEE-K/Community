@@ -3,6 +3,7 @@ package com.rest.study.user.controller;
 import com.rest.study.common.utils.JwtTokenProvider;
 import com.rest.study.user.dto.JoinUserDto;
 import com.rest.study.user.dto.LoginUserDto;
+import com.rest.study.user.dto.UpdateUserDto;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.repository.UserRepository;
 import com.rest.study.user.service.UserService;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins ="http://localhost:3000")
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class JwtLoginApiController {
 
     @Autowired
@@ -63,7 +64,7 @@ public class JwtLoginApiController {
     @GetMapping("/info")
     public ResponseEntity<User> getUserInfo(@RequestHeader("Authorization") String token) {
         String userId = jwtTokenProvider.getUserPk(token.replace("Bearer ", ""));
-        User user = userRepository.findByUserId(userId);
+        User user = userService.findByUserId(userId);
         if(user != null) {
             return ResponseEntity.ok(user);
         } else {
@@ -71,9 +72,16 @@ public class JwtLoginApiController {
         }
     }
 
-    @PatchMapping("/update")
-    public ResponseEntity<User> updateUserInfo(@RequestHeader("Authorization") String token) {
-        return null;
+    @PatchMapping
+    public ResponseEntity<User> updateUserInfo(@RequestHeader("Authorization") String token, @RequestBody UpdateUserDto updateUserDto) {
+        System.out.println( " updateUserDto : " + updateUserDto);
+        String userId = jwtTokenProvider.getUserPk(token.replace("Bearer ", ""));
+        User user = userService.updateUserInfo(updateUserDto, userId);
+        if(user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 
 

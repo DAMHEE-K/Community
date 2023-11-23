@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './User.css';
+import { Button } from "bootstrap";
 
 
 const UserJoin = () => {
@@ -37,13 +38,13 @@ const UserJoin = () => {
         phone: formData.phone,
       };
 
-    const resp = await axios.post("//localhost:5000/user/join", userData, {
+    const resp = await axios.post("//localhost:5000/users/join", userData, {
         headers: {
             "Content-Type": "application/json",
         },
     }).then((resp) => {
         alert("회원가입 완료되었습니다.");
-        navigate('/board');
+        navigate('/');
     });
   }
 
@@ -108,9 +109,7 @@ const UserJoin = () => {
         required
       />
     </div>
-    <button onClick={joinUser} className="btn">
-      가입
-    </button>
+    <Button text="가입" clickValue={joinUser} />
   </form>
 </div>
   );

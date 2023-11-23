@@ -1,25 +1,34 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../component/Button";
 
 const UserInfo = () => {
+  const navigate = useNavigate();
   const token = localStorage.getItem("authorization");
   const [userInfo, setUserInfo] = useState(null);
 
   const getUserInfo = async () => {
     try {
       if (token) {
-        const resp = await axios.get(`http://localhost:5000/user/info`, {
+        const resp = await axios.get(`http://localhost:5000/users/info`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setUserInfo(resp.data);
-        console.log(resp.data);
       }
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserInfo({
+      ...userInfo,
+      [name] : value,
+    });
   };
 
   useEffect(() => {
@@ -27,7 +36,15 @@ const UserInfo = () => {
   }, [token]);
 
   const updateUser = async() => {
-    const resp = await axios.patch(`//localhost:5000/user/update`)
+    const resp = await axios.patch(`//localhost:5000/users`, userInfo, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((resp) => {
+      alert("수정이 완료되었습니다.");
+      navigate('/users/info');
+    })
   }
 
   return (
@@ -65,7 +82,7 @@ const UserInfo = () => {
                   id="email"
                   name="email"
                   value={userInfo.email}
-                  readOnly
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -75,6 +92,7 @@ const UserInfo = () => {
                   type="password"
                   id="password"
                   name="password"
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -85,7 +103,7 @@ const UserInfo = () => {
                   id="phone"
                   name="phone"
                   value={userInfo.phone}
-                  readOnly
+                  onChange={handleChange}
                   required
                 />
               </div>

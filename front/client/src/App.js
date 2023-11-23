@@ -23,10 +23,10 @@ function App() {
       <Route path="/board/:foodId" element={<BoardDetail/>} />
       <Route path="/write" element={<BoardWrite />} />
       <Route path="/update/:foodId" element={<BoardUpdate />} />
-      <Route path="/join" element={<UserJoin />} />
-      <Route path="/login" element={<UserLogin setIsLoggedIn={setIsLoggedIn}/>} />
+      <Route path="/users/join" element={<UserJoin />} />
+      <Route path="/users/login" element={<UserLogin setIsLoggedIn={setIsLoggedIn}/>} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/userInfo" element={<UserInfo />} />
+      <Route path="/users/info" element={<UserInfo />} />
     </Routes>
   );
 }

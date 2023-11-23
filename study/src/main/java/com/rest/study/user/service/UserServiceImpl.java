@@ -2,6 +2,7 @@ package com.rest.study.user.service;
 
 import com.rest.study.user.dto.JoinUserDto;
 import com.rest.study.user.dto.LoginUserDto;
+import com.rest.study.user.dto.UpdateUserDto;
 import com.rest.study.user.entity.Authority;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.repository.UserRepository;
@@ -50,6 +51,17 @@ public class UserServiceImpl implements UserService{
     public User login(LoginUserDto loginUserDto) {
         User user = userRepository.findByUserId(loginUserDto.getUserId());
         if(user.getPassword().equals(loginUserDto.getPassword())) {
+            return user;
+        }
+        return null;
+    }
+
+    @Override
+    public User updateUserInfo(UpdateUserDto updateUserDto, String userId) {
+        User user = userRepository.findByUserId(userId);
+        if(user != null) {
+            updateUserDto.toUser(user);
+            userRepository.saveAndFlush(user);
             return user;
         }
         return null;
