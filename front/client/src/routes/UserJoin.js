@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './User.css';
-import { Button } from "bootstrap";
+import Button from "../component/Button";
 
 
 const UserJoin = () => {

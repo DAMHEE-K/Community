@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../component/Button";
+import './UserInfo.module.css';
 
 const UserInfo = () => {
   const navigate = useNavigate();
