@@ -1,4 +1,4 @@
-package com.rest.study.board.foodboard.dto;
+package com.rest.study.board.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

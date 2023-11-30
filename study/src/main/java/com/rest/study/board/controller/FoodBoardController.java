@@ -1,10 +1,10 @@
-package com.rest.study.board.foodboard.controller;
+package com.rest.study.board.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
-import com.rest.study.board.foodboard.dto.FoodBoardListDto;
-import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
-import com.rest.study.board.foodboard.service.FoodBoardService;
+import com.rest.study.board.dto.FoodBoardCreateDto;
+import com.rest.study.board.dto.FoodBoardListDto;
+import com.rest.study.board.dto.FoodBoardReadDto;
+import com.rest.study.board.service.FoodBoardService;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 
 @CrossOrigin(origins ="http://localhost:3000")

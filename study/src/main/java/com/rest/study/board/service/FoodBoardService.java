@@ -1,13 +1,10 @@
-package com.rest.study.board.foodboard.service;
+package com.rest.study.board.service;
 
-import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
-import com.rest.study.board.foodboard.dto.FoodBoardListDto;
-import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
-import com.rest.study.board.foodboard.entity.FoodBoard;
+import com.rest.study.board.dto.FoodBoardCreateDto;
+import com.rest.study.board.dto.FoodBoardListDto;
+import com.rest.study.board.dto.FoodBoardReadDto;
 import com.rest.study.user.entity.User;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 
 public interface FoodBoardService {
     FoodBoardReadDto findBoard(Long id);

@@ -1,6 +1,6 @@
 package com.rest.study.image.foodimage.entity;
 
-import com.rest.study.board.foodboard.entity.FoodBoard;
+import com.rest.study.board.entity.FoodBoard;
 import lombok.*;
 
 import javax.persistence.*;

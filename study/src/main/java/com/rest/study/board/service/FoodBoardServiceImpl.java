@@ -1,10 +1,10 @@
-package com.rest.study.board.foodboard.service;
+package com.rest.study.board.service;
 
-import com.rest.study.board.foodboard.dto.FoodBoardCreateDto;
-import com.rest.study.board.foodboard.dto.FoodBoardListDto;
-import com.rest.study.board.foodboard.dto.FoodBoardReadDto;
-import com.rest.study.board.foodboard.entity.FoodBoard;
-import com.rest.study.board.foodboard.repository.FoodBoardRepository;
+import com.rest.study.board.dto.FoodBoardCreateDto;
+import com.rest.study.board.dto.FoodBoardListDto;
+import com.rest.study.board.dto.FoodBoardReadDto;
+import com.rest.study.board.entity.FoodBoard;
+import com.rest.study.board.repository.FoodBoardRepository;
 import com.rest.study.image.foodimage.dto.ImageDto;
 import com.rest.study.image.foodimage.entity.FoodImageAttachment;
 import com.rest.study.image.foodimage.repository.FoodImageRepository;
@@ -21,7 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityNotFoundException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.rest.study.board.foodboard.entity;
+package com.rest.study.board.entity;
 
 import com.rest.study.image.foodimage.entity.FoodImageAttachment;
 import com.rest.study.user.entity.User;

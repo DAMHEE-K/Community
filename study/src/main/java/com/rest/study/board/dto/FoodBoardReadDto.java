@@ -1,6 +1,6 @@
-package com.rest.study.board.foodboard.dto;
+package com.rest.study.board.dto;
 
-import com.rest.study.board.foodboard.entity.FoodBoard;
+import com.rest.study.board.entity.FoodBoard;
 import com.rest.study.image.foodimage.dto.ImageDto;
 import com.rest.study.user.entity.User;
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package com.rest.study.image.foodimage.service;
 
-import com.rest.study.board.foodboard.entity.FoodBoard;
+import com.rest.study.board.entity.FoodBoard;
 import com.rest.study.image.foodimage.entity.FoodImageAttachment;
 import com.rest.study.image.foodimage.repository.FoodImageRepository;
 import com.rest.study.common.utils.StringUtils;

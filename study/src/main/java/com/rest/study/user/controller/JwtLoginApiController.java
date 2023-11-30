@@ -74,7 +74,6 @@ public class JwtLoginApiController {
 
     @PatchMapping
     public ResponseEntity<User> updateUserInfo(@RequestHeader("Authorization") String token, @RequestBody UpdateUserDto updateUserDto) {
-        System.out.println( " updateUserDto : " + updateUserDto);
         String userId = jwtTokenProvider.getUserPk(token.replace("Bearer ", ""));
         User user = userService.updateUserInfo(updateUserDto, userId);
         if(user != null) {
