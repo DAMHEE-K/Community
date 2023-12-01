@@ -3,6 +3,7 @@ package com.rest.study.comment.entity;
 import com.rest.study.board.entity.FoodBoard;
 import com.rest.study.user.entity.User;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
