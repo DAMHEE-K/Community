@@ -1,5 +1,7 @@
 package com.rest.study.user.service;
 
+import com.rest.study.user.entity.MyUserDetails;
+import com.rest.study.user.entity.User;
 import com.rest.study.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,8 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return (UserDetails) userRepository.findById(username)
-                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
+        User user = userRepository.findById(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found."));
+        return (MyUserDetails) user;
     }
 }

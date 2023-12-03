@@ -9,6 +9,7 @@ import com.rest.study.comment.entity.Comment;
 import com.rest.study.comment.repository.CommentRepository;
 import com.rest.study.user.entity.User;
 import com.rest.study.user.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +21,13 @@ import java.util.stream.Collectors;
 @Service
 public class CommentServiceImpl implements CommentService{
 
+    @Autowired
     UserRepository userRepository;
+
+    @Autowired
     CommentRepository commentRepository;
+
+    @Autowired
     FoodBoardRepository foodBoardRepository;
 
     @Override
@@ -34,14 +40,20 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public CommentDto writeComment(Long id, CommentDto commentDto) {
-        Optional<User> user = Optional.ofNullable(userRepository.findByUserId(commentDto.getUserId()));
-        Optional<FoodBoard> foodBoard = foodBoardRepository.findById(id);
-        Comment comment = Comment.builder()
-                            .foodBoard(foodBoard.get())
-                            .content(commentDto.getContent())
-                            .user(user.get())
-                            .build();
-        commentRepository.save(comment);
-        return comment;
+            System.out.println("service id = " + id);
+            System.out.println("service dto = " + commentDto);
+            System.out.println("service userId = " + commentDto.getUserId());
+            Optional<User> user = userRepository.findById(commentDto.getUserId());
+            Optional<FoodBoard> foodBoard = foodBoardRepository.findById(id);
+            Comment comment = Comment.builder()
+                    .foodBoard(foodBoard.get())
+                    .content(commentDto.getContent())
+                    .user(user.get())
+                    .build();
+            commentRepository.save(comment);
+
+            System.out.println("comment = " + comment);
+
+            return CommentDto.toDto(comment);
     }
 }

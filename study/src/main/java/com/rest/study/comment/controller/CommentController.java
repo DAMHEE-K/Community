@@ -3,6 +3,7 @@ package com.rest.study.comment.controller;
 import com.rest.study.board.dto.FoodBoardCreateDto;
 import com.rest.study.comment.dto.CommentDto;
 import com.rest.study.comment.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("/comments")
 public class CommentController {
 
+    @Autowired
     CommentService commentService;
 
     @GetMapping("/{id}")
@@ -23,7 +25,10 @@ public class CommentController {
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<CommentDto> writeComment(@PathVariable Long id,  @Valid @ModelAttribute CommentDto commentDto) {
-        return ResponseEntity.ok(commentService.writeComment(id, commentDto));
+    public ResponseEntity<CommentDto> writeComment(@PathVariable Long id, @RequestBody CommentDto commentDto) {
+        System.out.println("controller parameter = " + id + " " + commentDto);
+        CommentDto result = commentService.writeComment(id, commentDto);
+        System.out.println("result = " + result);
+        return ResponseEntity.ok(result);
     }
 }

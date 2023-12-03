@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "../component/Button";
-import './User.css';
 
 const UserLogin = () => {
   const navigate = useNavigate();
