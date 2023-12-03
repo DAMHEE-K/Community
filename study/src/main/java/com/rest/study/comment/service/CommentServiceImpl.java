@@ -40,9 +40,6 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public CommentDto writeComment(Long id, CommentDto commentDto) {
-            System.out.println("service id = " + id);
-            System.out.println("service dto = " + commentDto);
-            System.out.println("service userId = " + commentDto.getUserId());
             Optional<User> user = userRepository.findById(commentDto.getUserId());
             Optional<FoodBoard> foodBoard = foodBoardRepository.findById(id);
             Comment comment = Comment.builder()
@@ -51,9 +48,6 @@ public class CommentServiceImpl implements CommentService{
                     .user(user.get())
                     .build();
             commentRepository.save(comment);
-
-            System.out.println("comment = " + comment);
-
             return CommentDto.toDto(comment);
     }
 }

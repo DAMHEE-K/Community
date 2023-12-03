@@ -26,9 +26,6 @@ public class CommentController {
 
     @PostMapping("/{id}")
     public ResponseEntity<CommentDto> writeComment(@PathVariable Long id, @RequestBody CommentDto commentDto) {
-        System.out.println("controller parameter = " + id + " " + commentDto);
-        CommentDto result = commentService.writeComment(id, commentDto);
-        System.out.println("result = " + result);
-        return ResponseEntity.ok(result);
+        return ResponseEntity.ok(commentService.writeComment(id, commentDto));
     }
 }
