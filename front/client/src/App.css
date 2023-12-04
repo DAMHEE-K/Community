@@ -43,3 +43,8 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}

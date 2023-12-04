@@ -1,0 +1,10 @@
+.userId {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.comment {
+    background-color: rgb(227, 227, 227);
+    padding: 12px;
+    border-radius: 10px;
+}
