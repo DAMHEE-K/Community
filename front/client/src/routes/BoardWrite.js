@@ -58,7 +58,7 @@ const BoardWrite = () => {
 
 
     return (
-        <div className="container mt-5">
+        <div className="container">
         <div className="border p-4">
             <h1>글 작성</h1>
             <div className="mb-3">
