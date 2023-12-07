@@ -50,4 +50,10 @@ public class CommentServiceImpl implements CommentService{
             commentRepository.save(comment);
             return CommentDto.toDto(comment);
     }
+
+    @Override
+    public void deleteComment(CommentDto commentDto) {
+        Long commentId = commentDto.getCommentId();
+        commentRepository.deleteById(commentId);
+    }
 }

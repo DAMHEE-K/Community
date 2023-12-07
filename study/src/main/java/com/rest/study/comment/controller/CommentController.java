@@ -26,7 +26,12 @@ public class CommentController {
 
     @PostMapping("/{id}")
     public ResponseEntity<CommentDto> writeComment(@PathVariable Long id, @RequestBody CommentDto commentDto) {
-        System.out.println("commentDto =" + commentDto);
         return ResponseEntity.ok(commentService.writeComment(id, commentDto));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> deleteComment(@RequestBody CommentDto commentDto) {
+        commentService.deleteComment(commentDto);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -8,4 +8,6 @@ public interface CommentService {
     List<CommentDto> getComments(Long id);
 
     CommentDto writeComment(Long id, CommentDto commentDto);
+
+    void deleteComment(CommentDto commentDto);
 }

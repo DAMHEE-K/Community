@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommentDto {
-        private String content;
-        private String userId; // writer
+
+    private Long commentId;
+    private String content;
+    private String userId; // writer
 
     public static CommentDto toDto(Comment comment) {
-        return new CommentDto(comment.getContent(), comment.getUser().getUserId());
+        return new CommentDto(comment.getCommentId(), comment.getContent(), comment.getUser().getUserId());
     }
 
 }
