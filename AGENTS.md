@@ -1,5 +1,5 @@
 ## Project Overview
-- Java 17 / Spring Boot 2.7.x
+- Java 11 / Spring Boot 2.7.x
 - Gradle 8.2.1
 - REST API backend
 - Database: MySQL
