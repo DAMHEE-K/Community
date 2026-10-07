@@ -1,45 +1,54 @@
-## Project Overview
+## 프로젝트 개요
 - Java 11 / Spring Boot 2.7.x
 - Gradle 8.2.1
-- REST API backend
-- Database: MySQL
-- Persistence: Spring Data JPA / Hibernate
-- Package structure follows Controller → Service → Repository.
+- REST API 백엔드
+- 데이터베이스: MySQL
+- 영속성: Spring Data JPA / Hibernate
+- 패키지 구조는 Controller → Service → Repository 흐름을 따른다.
 
-## Build and Test comments
-- Build: `./gradlew build`
-- Run tests: `./gradlew test`
-- Run application: `./gradlew bootRun`
-- Clean build: `./gradlew clean build`
+## 빌드 및 테스트 명령
+- 빌드: `./gradlew build`
+- 테스트: `./gradlew test`
+- 애플리케이션 실행: `./gradlew bootRun`
+- 클린 빌드: `./gradlew clean build`
 
-## Code Conventions
-- Follow standard Java and Spring Boot conventions.
-- Use 4 spaces for indentation. Do not use tabs.
-- Use `PascalCase` for class and interface names.
-- Use `camelCase` for methods, variables, and fields.
-- Use `UPPER_SNAKE_CASE` for constants.
-- Keep methods small and focused on a single responsibility.
-- Prefer constructor injection over field injection.
-- Do not use `@Autowired` field injection.
-- Use Lombok only if it is already used in the project.
-- Follow the existing package structure and naming conventions.
-- Do not introduce new libraries or frameworks unless necessary.
-- Prefer existing utilities and common components over duplicating logic.
-- Handle exceptions explicitly and use the project's existing exception-handling pattern.
-- Add or update tests when changing business logic.
-- Do not modify unrelated code.
+## 코드 작성 규칙
+- Java와 Spring Boot의 표준 관례를 따른다.
+- 들여쓰기는 탭 대신 공백 4칸을 사용한다.
+- 클래스와 인터페이스 이름은 `PascalCase`를 사용한다.
+- 메서드, 변수, 필드 이름은 `camelCase`를 사용한다.
+- 상수 이름은 `UPPER_SNAKE_CASE`를 사용한다.
+- 메서드는 작게 유지하고 한 가지 책임에 집중한다.
+- 필드 주입보다 생성자 주입을 우선한다.
+- `@Autowired` 필드 주입을 사용하지 않는다.
+- Lombok은 프로젝트에서 이미 사용 중인 경우에만 사용한다.
+- 기존 패키지 구조와 명명 규칙을 따른다.
+- 필요한 경우가 아니면 새 라이브러리나 프레임워크를 추가하지 않는다.
+- 기존 공통 구성 요소와 유틸리티를 우선 활용한다.
+- 예외를 명시적으로 처리하고 프로젝트의 기존 예외 처리 방식을 따른다.
+- 비즈니스 로직을 변경할 때는 테스트를 추가하거나 수정한다.
+- 관련 없는 코드는 수정하지 않는다.
 
-## Commit Rules
-- Follow the Conventional Commits format.
-- Write commit descriptions in Korean.
-- Format : `<type>: <description>`
-- Write concise and descriptive commit messages.
-- Use the following types:
-  - `feat`: Add a new feature
-  - `fix`: Fix a bug
-  - `refactor`: Refactor code without changing behavior
-  - `test`: Add or modify tests
-  - `docs`: Documentation changes
-  - `style`: Formatting or style changes
-  - `chore`: Build, configuration, or maintenance changes
-- Keep each commit focused on a single logical change.
+## 커밋 규칙
+- Conventional Commits 형식을 따른다.
+- 커밋 설명은 한글로 작성한다.
+- 형식: `<type>: <설명>`
+- 커밋 메시지는 간결하고 구체적으로 작성한다.
+- 다음 유형을 사용한다.
+  - `feat`: 기능 추가
+  - `fix`: 버그 수정
+  - `refactor`: 동작을 바꾸지 않는 코드 개선
+  - `test`: 테스트 추가 또는 수정
+  - `docs`: 문서 변경
+  - `style`: 서식 변경
+  - `chore`: 빌드, 설정, 유지보수 변경
+- 한 커밋에는 하나의 논리적 변경만 담는다.
+
+## 멀티 에이전트 오케스트레이션
+- 조정 에이전트가 사용자 요청을 관리하고, 범위가 명확한 작업을 배정하며, 결과를 통합해 사용자에게 보고한다. 역할별 지침은 `.agents/planner.md`, `.agents/architect.md`, `.agents/developer.md`, `.agents/database.md`, `.agents/qa.md`에 둔다.
+- 기본 흐름은 기획의 요구사항·수용 기준 정리 → 아키텍처 설계 → 필요한 경우 데이터베이스 영향 검토 → 개발 → QA 검증이다. 관련 없는 역할은 생략할 수 있다. 입력과 파일 담당 범위가 명확한 독립 검토만 병렬로 진행한다.
+- 작업을 맡길 때는 사용자 요청, 관련 저장소 정보, 작업 범위, 기대 산출물, 제약을 전달한다. 각 에이전트는 인계 시 가정, 미해결 질문, 변경 파일, 검증 결과, 위험을 명시한다.
+- 구현 전에 상충하는 의견은 조정 에이전트가 해결한다. 어느 에이전트도 요구사항, 아키텍처 결정, DB 스키마를 임의로 바꾸지 않는다. 범위를 벗어나는 변경안은 근거와 영향을 제시하고 사용자 결정을 받는다.
+- 같은 파일에는 한 번에 한 에이전트만 작성한다. 조정 에이전트는 결과가 `AGENTS.md`, 기존 코드 관례, 합의된 요구사항에 맞는지 확인한다. 다른 에이전트의 결론은 근거를 확인한 뒤 채택한다.
+- QA 결함은 담당 역할에 돌려 수정하고 관련 검증을 다시 수행한다. 남은 실패나 검증하지 못한 동작은 사용자에게 알린다.
+- 사용자가 명시적으로 허락하기 전에는 에이전트 작업을 커밋하거나 푸시하지 않는다. 허락을 요청하기 전에 변경 내용과 검증 결과를 보여준다. 허락을 받으면 위 커밋 규칙을 따른다.
